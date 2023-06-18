@@ -1,0 +1,46 @@
+.fullWindow{
+    /* From https://css.glass */
+
+    /* height: 100%; */
+}
+
+.heading{
+    margin: 20px 0;
+    /* margin: auto; */
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.bodyApp{
+    width: 70%;
+    height: 100%;
+    padding: 20px;
+    margin: auto;
+}
+.label{
+    font-size: 20px;
+    margin: 20px 10px;
+}
+.inputArea{
+    width: 60%;
+    outline: none;
+    border: 2px solid grey;
+    height: 25px;
+    margin-right: 20px;
+}
+.inputArea:focus{
+    outline: none;
+}
+.submitButton{
+    cursor: pointer;
+    font-family: 'Roboto';
+    background-color: green;
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    
+}
