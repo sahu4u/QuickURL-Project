@@ -2,10 +2,17 @@ import React, {useContext} from 'react'
 import "./header.css"
 import { Link } from 'react-router-dom'
 import {AuthContext} from "../../context/AuthContext"
+import {logoutCall} from '../../apiCalls'
 
 export default function Header() {
     const PF=process.env.REACT_APP_PUBLIC_FOLDER;
-    const {user}=useContext(AuthContext)
+    const {user,dispatch}=useContext(AuthContext)
+
+    const handleClick = () => {
+      logoutCall(
+        dispatch
+      );
+    }
   return (
     <div className='topbarContainer'>
       <div className="topbarLeft">
@@ -22,8 +29,9 @@ export default function Header() {
 
           
           <div className='topbarProfile'>
-                <img src={PF+"ok.png"} alt="" className="topbarImg" />
+                
                 <span className='username'>{user.username}</span>
+                <span className="topbarLink" onClick={handleClick}>Sign out</span>
           </div>
           
           

@@ -15,8 +15,11 @@ export default function Home() {
     const [query,setQuery]= useState("");
     const full=useRef();
     const note=useRef();
+    const keys = ["note", "short", "full"];
 
-
+    console.log(user)
+    
+    
     const submitHandler = async (e) =>{
         e.preventDefault()
         const newUrl={
@@ -35,35 +38,55 @@ export default function Home() {
       }
 
     const search = (Url)=>{
-        return Url.filter(url => (url.full.toLowerCase().includes(query.toLowerCase())) ||
-                                (url.short.toLowerCase().includes(query.toLowerCase())) ||
-                                (url.note.toLowerCase().includes(query.toLowerCase()))
-        );
+
+        return Url.filter(
+          url=> keys.some(key=>url[key].toLowerCase().includes(query.toLowerCase()))
+          );
+        // return Url.filter(url => (url.full.toLowerCase().includes(query.toLowerCase())) ||
+        //                         (url.short.toLowerCase().includes(query.toLowerCase())) ||
+        //                         (url.note.toLowerCase().includes(query.toLowerCase()))
+        // );
     }
 
 
     console.log(user)
 
+    // useEffect(()=>{
+    //     const fetchUrl= async () =>{
+    //         try{
+    //         console.log(user.username)
+    //         const res= await axios.get("/shorturls/get/"+user.username)
+    //         console.log(res.data)
+    //         setUrl(res.data.sort((p1,p2)=>{
+    //             return new Date(p2.createdAt)- new Date(p1.createdAt)
+    //           }));
+    //         }
+    //         catch(err){
+    //             console.log(err)
+    //         }
+    //     }
+    //     fetchUrl();
+    // },[user._id, user.username])
+
     useEffect(()=>{
-        const fetchUrl= async () =>{
-            try{
-            console.log(user.username)
-            const res= await axios.get("/shorturls/get/"+user.username)
-            console.log(res.data)
-            setUrl(res.data.sort((p1,p2)=>{
-                return new Date(p2.createdAt)- new Date(p1.createdAt)
-              }));
-            }
-            catch(err){
-                console.log(err)
-            }
-        }
-        fetchUrl();
-    },[user._id, user.username])
-
-    
-
-  console.log(Url)
+      const fetchUrl= async () =>{
+          try{
+          console.log(user.username)
+          const res= await axios.get(`/shorturls/get/`+user.username+`?q=${query}`)
+          console.log(res.data)
+          setUrl(res.data.sort((p1,p2)=>{
+              return new Date(p2.createdAt)- new Date(p1.createdAt)
+            }));
+          }
+          catch(err){
+              console.log(err)
+          }
+      }
+      fetchUrl();
+  },[user._id, user.username, query])
+  // const a=keys[0]
+  console.log(Url[0])
+  console.log(keys[0])
   return (
     <div className='fullWindow'>
         <Header/>
@@ -89,7 +112,8 @@ export default function Home() {
             <br />
 
             <h3>URLs:</h3>
-            <Table Url={search(Url)}/>
+            {/* <Table Url={search(Url)}/> */}
+            <Table Url={Url}/>
             <br />
             <br />
             

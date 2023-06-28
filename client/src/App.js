@@ -17,12 +17,12 @@ function App() {
 
   console.log("Server is running")
   const {user} = useContext(AuthContext)
-
+  console.log(user)
   return (
     <Router>
       <Routes>
           <Route path="/"
-            element={user?<Home/> : <Register/>}
+            element={user?<Home /> : <Register/>}
           />
           <Route path="/login"
             element={user?<Navigate to="/"/>:<Login/>}

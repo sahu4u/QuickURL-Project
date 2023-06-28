@@ -40,14 +40,14 @@ export default function Register() {
   return (
     <div className="loginX">
         <div className="loginWrapper">
-            <div className="loginLeft">
+            <div className="loginLeftX">
                 <h3 className="loginLogo">QuickURL</h3>
                 <span className="loginDesc">
                 Get your URLs shortened and saved in few seconds. Add a notes to it.
                 </span>
             </div>
-            <div className="loginRight">
-                <form className="loginBox" onSubmit={handleClick}>
+            <div className="loginRightX">
+                <form className="loginBoxX" onSubmit={handleClick}>
                     <input 
                     placeholder='Username' 
                     required 
@@ -75,7 +75,7 @@ export default function Register() {
                     className="loginInputA"
                     minLength="6"
                      />
-                    <button className="loginButton" type='submit'>Sign Up</button>
+                    <button className="loginButtonX" type='submit'>Sign Up</button>
                     <span className="loginForgot">Forgot Password ?</span>
                     <button className="loginRegisterButton">
                         <Link to= "/login" style={{textDecoration:"none", color:"white"}}>

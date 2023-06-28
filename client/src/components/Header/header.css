@@ -34,8 +34,14 @@
     justify-content: space-around;
     color:white;
 }
+.topbarProfile{
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
 .topbarLink{
     margin-right: 10px;
+    margin-left: 2.5px;
     font-size: 20px;
     cursor: pointer;
 }
@@ -44,8 +50,10 @@
     padding: 6px;
     border: 1px solid white;
     border-radius: 20px;
-    margin-left: 2px;
+    
+    margin-right: 5px;
 }
+
 
 .topbarImg{
     height:32px;

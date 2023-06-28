@@ -15,14 +15,14 @@
     
 }
 
-.loginLeft{
+.loginLeftX{
     flex:1;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.loginRight{
+.loginRightX{
     flex:1;
     display: flex;
     flex-direction: column;
@@ -46,7 +46,7 @@
 
 }
 
-.loginBox{
+.loginBoxX{
     height: 400px;
     padding: 20px;
     background-color: white ;
@@ -61,12 +61,13 @@
     border: 1px solid gray;
     font-size: 18px;
     padding-left: 20px ;
+    /* margin-bottom: 5px; */
 }
 
 .loginButton:focus{
     outline: none;
 }
-.loginButton{
+.loginButtonX{
     height: 50px;
     border-radius: 10px;
     border: none;

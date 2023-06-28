@@ -3,6 +3,7 @@ import axios from "axios"
 import {preventDefault} from "react"
 import {Navigate} from "react-router-dom"
 import { Link } from 'react-router-dom'
+import "./table.css"
 
 export default function Table({Url}) {
 
@@ -10,7 +11,7 @@ export default function Table({Url}) {
     const shrt=useRef();
 
     const EventManager= async(e)=>{
-        e.preventDefault();
+        // e.preventDefault();
     }
    
     const shorturlHandler= async (url)=>{
@@ -18,17 +19,20 @@ export default function Table({Url}) {
             console.log("clickedd")
             console.log(url)
             // console.log(shrt.current.value)
-            await axios.get("/shorturls/"+url.short)
-                   
+            const fullLink= await axios.get("/shorturls/"+url.short)
+                   console.log(fullLink)
+            window.location.href=fullLink.data;
         }
         catch(err){
             console.log(err)
         }
     }
+
     console.log(isUrl)
   
         return (
-            <table className='table table-striped table-responsive'>
+            <div className='table-responsive'>
+                    <table className='table table-striped table-responsive'>
                 <thead>
                     <tr>
                         <th scope="col">Full URL</th>
@@ -41,11 +45,11 @@ export default function Table({Url}) {
                     
                        {Url.map((url)=>(
                             <tr scope="row"> 
-                                <td >
+                                <td className='fullUrl'>
                                 <a href={url.full}>{url.full}</a>
                                 </td>
      
-                            <td onClick={function myFunction(){
+                            <td className='shortUrl' onClick={function myFunction(){
                                     EventManager();    
                                     shorturlHandler(url);
                                 
@@ -59,6 +63,9 @@ export default function Table({Url}) {
                
 
             </table>  
+            </div>
+
+            
   )
 }
 // {Url.map(p=>(
