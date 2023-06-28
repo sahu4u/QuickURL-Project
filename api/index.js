@@ -25,26 +25,7 @@ app.use('/api/users',userRoute);
 app.use("/api/shorturls",shortUrlRoute);
 
 
-// app.post('/short', async (req, res) => {
-//     const found = await Shorturl.find({full: req.body.full});
-//     if(found.length>0){
-//       res.send(found);
-//     }
-//     else{
-//       await Shorturl.create({full: req.body.full});
-//       const foundNow = await Shorturl.find({full: req.body.full});
-//       res.send(foundNow);
-//     }
-//   });
 
-
-//   app.get('/:shortUrl', async (req, res) => {
-//     const short = await Shorturl.findOne({ short: req.params.shortUrl });
-//     if (short == null) return res.sendStatus(404);
-//     short.clicks++;
-//     short.save();
-//     res.redirect(`${short.full}`);
-//   });
 
 app.listen(3001,()=>{
     console.log("Backend Server is running ")

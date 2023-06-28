@@ -20,7 +20,7 @@ export default function Table({Url}) {
             console.log(url)
             // console.log(shrt.current.value)
             const fullLink= await axios.get("/shorturls/"+url.short)
-                   console.log(fullLink)
+                //    console.log(fullLink)
             window.location.href=fullLink.data;
         }
         catch(err){

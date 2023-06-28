@@ -2,13 +2,6 @@ import {createContext, useEffect } from "react";
 import AuthReducer from "../context/AuthReducer"
 import { useReducer } from "react";
 
-
-// const userFromLocalStorage = localStorage.getItem("user");
-// console.log("userFromLocalStorage:", userFromLocalStorage);
-
-// const parsedUser = userFromLocalStorage
-//   ? JSON.parse(userFromLocalStorage).user
-//   : null;
 const userFromLocalStorage = localStorage.getItem("user");
 const parsedUser = userFromLocalStorage ? JSON.parse(userFromLocalStorage) : null;
 const INITIAL_STATE={
@@ -32,7 +25,7 @@ export const AuthContextProvider = ({children}) =>{
 
    useEffect(() => {
       const userFromLocalStorage = localStorage.getItem("user");
-      console.log("userFromLocalStorage:", userFromLocalStorage);
+      // console.log("userFromLocalStorage:", userFromLocalStorage);
   
       try {
          const parsedUser = JSON.parse(userFromLocalStorage);

@@ -37,19 +37,19 @@ export default function Home() {
     
       }
 
-    const search = (Url)=>{
+    // const search = (Url)=>{
 
-        return Url.filter(
-          url=> keys.some(key=>url[key].toLowerCase().includes(query.toLowerCase()))
-          );
-        // return Url.filter(url => (url.full.toLowerCase().includes(query.toLowerCase())) ||
-        //                         (url.short.toLowerCase().includes(query.toLowerCase())) ||
-        //                         (url.note.toLowerCase().includes(query.toLowerCase()))
-        // );
-    }
+    //     return Url.filter(
+    //       url=> keys.some(key=>url[key].toLowerCase().includes(query.toLowerCase()))
+    //       );
+    //     // return Url.filter(url => (url.full.toLowerCase().includes(query.toLowerCase())) ||
+    //     //                         (url.short.toLowerCase().includes(query.toLowerCase())) ||
+    //     //                         (url.note.toLowerCase().includes(query.toLowerCase()))
+    //     // );
+    // }
 
 
-    console.log(user)
+    // console.log(user)
 
     // useEffect(()=>{
     //     const fetchUrl= async () =>{
@@ -71,9 +71,9 @@ export default function Home() {
     useEffect(()=>{
       const fetchUrl= async () =>{
           try{
-          console.log(user.username)
+          // console.log(user.username)
           const res= await axios.get(`/shorturls/get/`+user.username+`?q=${query}`)
-          console.log(res.data)
+          // console.log(res.data)
           setUrl(res.data.sort((p1,p2)=>{
               return new Date(p2.createdAt)- new Date(p1.createdAt)
             }));
@@ -85,8 +85,8 @@ export default function Home() {
       fetchUrl();
   },[user._id, user.username, query])
   // const a=keys[0]
-  console.log(Url[0])
-  console.log(keys[0])
+  // console.log(Url[0])
+  // console.log(keys[0])
   return (
     <div className='fullWindow'>
         <Header/>
