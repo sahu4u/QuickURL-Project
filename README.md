@@ -1,3 +1,5 @@
+
+![quickurl](https://github.com/sahu4u/QuickURL-Project/assets/96582845/a06f0600-a40c-46ad-a2bc-16ab91c06b0b)
 # QuickURL-Project
 Title: QuickURL - URL Shortener with User Authentication (MERN Stack)
 
@@ -17,22 +19,21 @@ To run the QuickURL project, follow these steps:
 Dependencies:
 Backend (API):
 
--bcrypt
--cors
--dotenv
--express
--helmet
--mongoose
--morgan
--nodemon
--shortid
-
+bcrypt
+cors
+dotenv
+express
+helmet
+mongoose
+morgan
+nodemon
+shortid
 
 Frontend (React):
 
--axios
--react
--react-router-dom
+axios
+react
+react-router-dom
 Backend and frontend dependencies can be installed using the npm install command in their respective directories.
 
 Internal Working:
